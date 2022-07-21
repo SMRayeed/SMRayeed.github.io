@@ -1,4 +1,4 @@
-# Author: S M Rayeed
+# Author : S M Rayeed
 
 Department of Computer Science & Engineering, </br>
 Islamic University of Technology (IUT) </br>
