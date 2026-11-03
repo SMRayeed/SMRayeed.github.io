@@ -311,3 +311,8 @@ footer nav { display: flex; gap: 16px; flex-wrap: wrap; }
 @media (max-width: 560px) { .demos { gap: 10px; } .demo figcaption span { display: none; } }
 .figimg { width: 100%; height: auto; display: block; border-radius: 3px; }
 .featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.xfigs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: -16px 0 44px; align-items: start; }
+.xfigs figcaption { font-size: .9rem; }
+@media (max-width: 760px) { .xfigs { grid-template-columns: 1fr; } }
+.teaser .plate img { border-radius: 3px; }
