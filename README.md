@@ -1,6 +1,3 @@
-# Author : S M Rayeed
+# smrayeed.github.io
 
-Department of Computer Science & Engineering, </br>
-Islamic University of Technology (IUT) </br>
-Website: https://smrayeed.github.io/ </br>
-Email: rayeed@iut-dhaka.edu
+Personal research website of S M Rayeed. Static HTML, served by GitHub Pages.
