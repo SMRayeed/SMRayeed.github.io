@@ -384,9 +384,15 @@ table.res .yes { color: var(--moss); font-size: 1rem; } table.res .part { color:
 .ffacts span { color: #B8C1DD; font-size: .95rem; }
 
 .inlinefig { background: #fff; border-radius: 4px; padding: 8px; margin-top: 4px; }
-.tkey { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 4px 0 2px; }
-.tkey div { background: #F3F4F8; border-radius: 6px; padding: 10px 8px; text-align: center; }
-.tkey b { display: block; font-size: 1.35rem; color: var(--moss); }
-.tkey span { font-size: .85rem; color: var(--muted); }
+.tkey { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 2px 0 0; font-size: .95rem; color: var(--muted); }
+.tkey b { font-size: 1.15rem; color: var(--moss); margin-right: 3px; }
+.tres { margin: 0; font-size: .98rem; color: var(--ink-2); }
 .tfind { margin: 4px 0 0; padding-left: 1.1em; color: var(--ink-2); font-size: .95rem; }
 .tfind li { margin: 6px 0; }
+
+.fstack { display: flex; flex-direction: column; gap: 22px; }
+.fstack .feat { flex: 1; }
+.feat.stackme .figwrap { padding: 10px; }
+.feat.split { display: flex; flex-direction: column; }
+.srow { flex: 1; }
+.srow .figwrap { flex: 1; display: flex; align-items: center; justify-content: center; }
