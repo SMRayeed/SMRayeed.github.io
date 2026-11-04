@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine-grained AI for biodiversity | S M Rayeed</title>
+<meta name="description" content="Fine-grained recognition benchmarks, a continental-scale image dataset with validated traits, and detection and segmentation pipelines for biodiversity.">
+<meta property="og:title" content="Fine-grained AI for biodiversity | S M Rayeed">
+<meta property="og:description" content="Fine-grained recognition benchmarks, a continental-scale image dataset with validated traits, and detection and segmentation pipelines for biodiversity.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon-sr.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-sr-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&family=Noto+Sans+Bengali:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav dark"><div class="wrap">
+<a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#121729"/><rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#3DD6F5" stroke-width="2.5" opacity=".9"/><text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-weight="700" fill="#F5F7FD">SR</text></svg>S M Rayeed</a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav aria-label="Main"><ul id="menu"><li><a href="../research/" aria-current=page>Research</a></li><li><a href="../publications/">Publications</a></li><li><a href="../datasets/">Datasets</a></li><li><a href="../cv.pdf">CV</a></li></ul></nav>
+</div></header>
+<main id="main">
+
+<div class="ph"><div class="wrap">
+  <div class="crumbs" style="font:600 .92rem var(--display);color:#98A3C4;margin-bottom:18px"><a href="../" style="color:#D3DAEE">Home</a> / <a href="../research/" style="color:#D3DAEE">Research</a></div>
+  <div class="venue"><span class="tag workshop">ICCV 2025 Workshop</span><span class="tag journal">Scientific Data 2026</span><span class="tag workshop">CVPR 2025 Workshop</span><span class="tag workshop">NeurIPS 2025 Workshop</span></div>
+  <h1>Fine-grained AI for biodiversity</h1>
+  <p class="authors">Benchmarks, datasets and pipelines for recognizing and measuring organisms from images</p>
+  <div class="links"><a class="btn solid" href="../Fine-grained-taxonomic-identificaiton/">Recognition benchmark</a><a class="btn" href="../Beetle-dataset-with-morphological-traits/">Image dataset</a><a class="btn" href="../research/vision-datasets-and-pipelines/">Pipelines</a></div>
+</div></div>
+<div class="wrap teaser"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/iccvw_samples.webp" alt="One sample from each dataset, from curated lab images to field photographs: BeetlePUUM, BeetlePalooza, NHM-Carabids and I1MC." loading="lazy"><figcaption>One sample from each dataset, from curated lab images to field photographs: BeetlePUUM, BeetlePalooza, NHM-Carabids and I1MC.</figcaption></figure></div>
+
+<section><div class="wrap twocol">
+  <p class="tldr">Vision models identify 1,769 ground beetle species at 94% accuracy from curated images, but lose up to 37% in the field. We built the benchmark, the dataset and the pipelines behind that finding.</p>
+  <div class="prose">
+    <p>Biodiversity monitoring depends on identifying and measuring organisms at scale, a task where classes differ in fine detail, labels follow a long tail and field images look nothing like lab images. Ground beetles, sensitive indicators of ecosystem change monitored across the United States by NEON, have all of these properties.</p>
+    <p>This line of work covers the full path: imaging specimens and validating their measurements, extracting each specimen from tray photographs with open-vocabulary detection and segmentation, and benchmarking which vision encoders can recognize them.</p>
+  </div>
+</div></section>
+
+<section style="background:var(--paper-2)"><div class="wrap">
+  <article class="proj" style="border:0;padding-top:0"><a class="figlink" href="../Fine-grained-taxonomic-identificaiton/"><span class="hint">Project page</span><img class="figimg" src="../assets/fig/iccvw_probing.webp" alt="Linear-probe accuracy of each encoder as training data grows, under proportional and balanced sampling." loading="lazy"></a><div>
+    <div class="tags"><span class="tag workshop">ICCV 2025 Workshop</span><span class="tag first">First author</span></div><h2><a href="../Fine-grained-taxonomic-identificaiton/">Fine-grained recognition benchmark</a></h2>
+    <p class="sum">12 self-supervised, supervised and vision-language encoders, linear-probed on 100,885 images of 1,769 species from four long-tailed datasets. ViLT reaches 97.15% genus and 93.97% species accuracy; half the training data costs little accuracy; transfer from lab to field images drops by up to 37%.</p>
+    <div class="linkrow"><a class="lk pp" href="../Fine-grained-taxonomic-identificaiton/">Project page</a><a class="lk" href="https://openaccess.thecvf.com/content/ICCV2025W/CV4E/papers/Rayeed_Fine-Grained_Beetle_Taxonomy_with_Vision_Models_A_Benchmark_on_Long-Tailed_ICCVW_2025_paper.pdf">Paper</a><a class="lk" href="https://arxiv.org/abs/2504.13393">arXiv</a></div></div></article>
+  <article class="proj"><a class="figlink" href="../Beetle-dataset-with-morphological-traits/"><span class="hint">Project page</span><img class="figimg" src="../assets/fig/sdata_detection.webp" alt="Individual specimen extraction: Grounding DINO with the prompt “a beetle.” detects each specimen in a group image, which is then cropped." loading="lazy"></a><div>
+    <div class="tags"><span class="tag journal">Scientific Data 2026</span><span class="tag first">First author</span></div><h2><a href="../Beetle-dataset-with-morphological-traits/">Continental-scale image dataset with validated traits</a></h2>
+    <p class="sum">13,200+ NEON ground beetles from 30 sites, imaged at high resolution, extracted from group images with Grounding DINO and measured: 39,064 elytra records whose image measurements agree with calipers at R² 0.94 to 0.98.</p>
+    <div class="linkrow"><a class="lk pp" href="../Beetle-dataset-with-morphological-traits/">Project page</a><a class="lk" href="https://doi.org/10.1038/s41597-026-08120-3">Paper</a><a class="lk" href="https://huggingface.co/datasets/imageomics/Hawaii-beetles">Hawaii-beetles</a><a class="lk" href="https://huggingface.co/datasets/imageomics/2018-NEON-beetles">2018-NEON-beetles</a></div></div></article>
+  <article class="proj"><a class="figlink" href="https://openreview.net/pdf?id=sBUl8YC5Bg"><img class="figimg" src="../assets/fig/beetleflow.webp" alt="BeetleFlow pipeline: iterative Grounding DINO detection with a VLM check, cropping and metadata matching, and Mask2Former part segmentation." loading="lazy"></a><div>
+    <div class="tags"><span class="tag workshop">NeurIPS 2025 Workshop</span></div><h2><a href="https://openreview.net/pdf?id=sBUl8YC5Bg">BeetleFlow: detection, cropping and part segmentation</a></h2>
+    <p class="sum">Three stages for tray images of pinned beetles: detect every specimen, crop and sort it with its metadata, and segment it into body parts. Detection matches the exact count on 97.81% of 1,506 NEON trays.</p><div class="linkrow"><a class="lk" href="https://openreview.net/pdf?id=sBUl8YC5Bg">Paper</a><a class="lk" href="https://arxiv.org/abs/2511.00255">arXiv</a><a class="lk" href="https://github.com/Imageomics/BeetleFlow">Code</a></div></div></article>
+  <article class="proj"><a class="figlink" href="https://openreview.net/pdf?id=lw8nSUiDtK"><img class="figimg" src="../assets/fig/mindgap.webp" alt="Vision tasks by number of training examples. Few evaluations cover the small-data range marked by the dashed box." loading="lazy"></a><div>
+    <div class="tags"><span class="tag workshop">NeurIPS 2025 Workshop</span></div><h2><a href="https://openreview.net/pdf?id=lw8nSUiDtK">Mind the (Data) Gap: Evaluating Vision Systems in Small Data Applications</a></h2>
+    <p class="sum">With hundreds to thousands of labels, the regime most science lives in, multimodal LLMs plateau early while vision-only encoders keep improving. On NeWT, 10x more training samples beats 10x more inference compute.</p><div class="linkrow"><a class="lk" href="https://openreview.net/pdf?id=lw8nSUiDtK">Paper</a><a class="lk" href="https://arxiv.org/abs/2504.06486">arXiv</a><a class="lk" href="https://github.com/samuelstevens/mindthegap">Code</a></div></div></article>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="h2">Datasets</h2>
+  <div class="dsets"><article class="ds"><h3><a href="https://huggingface.co/datasets/imageomics/Hawaii-beetles">Hawaii-beetles</a></h3><div class="facts">Hugging Face, DOI 10.57967/hf/7272, CC BY 4.0</div><p>Pinned carabids from NEON's Hawaii site: 162 group images, 1,614 individual specimen crops and 1,579 trait rows across 14 endemic species, with caliper and image-based elytra measurements.</p><div class="linkrow"><a class="lk" href="https://huggingface.co/datasets/imageomics/Hawaii-beetles">Open dataset</a><a class="lk" href="../research/vision-datasets-and-pipelines/">Vision datasets and detection pipelines</a></div></article><article class="ds"><h3><a href="https://huggingface.co/datasets/imageomics/2018-NEON-beetles">2018-NEON-beetles</a></h3><div class="facts">Hugging Face, DOI 10.57967/hf/6890, CC BY-SA 4.0</div><p>Ethanol-preserved carabids from 30 NEON sites: 577 group images, 11,654 individual specimen images and 39,064 elytra measurement records, plus segmentation train and test splits.</p><div class="linkrow"><a class="lk" href="https://huggingface.co/datasets/imageomics/2018-NEON-beetles">Open dataset</a><a class="lk" href="../research/vision-datasets-and-pipelines/">Vision datasets and detection pipelines</a></div></article></div>
+</div></section>
+<section><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:10px">Also in this line of work</h2><ol class="pubs"><li class="pub" data-f="workshop first"><div class="meta"><span class="tag workshop">CVPR 2025 Workshop</span><span class="tag first">First author</span></div><div><h3><a href="https://drive.google.com/file/d/1dPLy6RVQNy0d_a09L2i8QfO8_UsQ6ZZN/view">BeetleVerse: A study on taxonomic classification of ground beetles</a></h3><div class="authors"><b>S M Rayeed</b>, Alyson East, Samuel Stevens, Sydne Record, Charles V. Stewart</div><div class="vfull">CVPR 2025 Workshop on CV4Animals</div><div class="linkrow"><a class="lk" href="https://drive.google.com/file/d/1dPLy6RVQNy0d_a09L2i8QfO8_UsQ6ZZN/view">Paper</a><a class="lk" href="https://arxiv.org/abs/2504.13393">arXiv</a><a class="lk" href="https://drive.google.com/file/d/1MAKbet984Q1e6P4XoqW13TiLNJDSZq-Y/view?usp=sharing">Poster</a></div></div></li><li class="pub" data-f="journal review"><div class="meta"><span class="tag journal">MEE 2026</span><span class="tag review">Under review</span></div><div><h3><a href="https://preprints.arphahub.com/article/213643/download/pdf/">From collection trays to AI-ready data: An operational framework for automated entomological specimen processing</a></h3><div class="authors"><b>S M Rayeed</b> (co-author)</div><div class="vfull">Methods in Ecology and Evolution (under review)</div><div class="linkrow"><a class="lk" href="https://preprints.arphahub.com/article/213643/download/pdf/">Preprint</a></div></div></li><li class="pub" data-f="journal"><div class="meta"><span class="tag journal">MEE 2025</span></div><div><h3><a href="https://besjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/2041-210x.70140">Optimizing Image Capture for Computer Vision-Powered Taxonomic Identification and Trait Recognition of Biodiversity Specimens</a></h3><div class="authors">Alyson East, Elizabeth G. Campolongo, Luke Meyers, <b>S M Rayeed</b>, Samuel Stevens, Iuliia Zarubiieva, Isadora E. Fluck, + 21 co-authors, Sydne Record</div><div class="vfull">Methods in Ecology and Evolution, 2025</div><div class="linkrow"><a class="lk" href="https://besjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/2041-210x.70140">Paper</a><a class="lk" href="https://arxiv.org/abs/2505.17317">arXiv</a></div></div></li></ol></div></section>
+</main>
+<footer><div class="wrap">
+<div>S M Rayeed, PhD student in Computer Science at Rensselaer Polytechnic Institute<br><a href="mailto:rayees@rpi.edu">rayees@rpi.edu</a></div>
+<nav aria-label="Footer"><a href="https://scholar.google.com/citations?user=Xv0o0F4AAAAJ">Google Scholar</a><a href="https://github.com/SMRayeed">GitHub</a><a href="https://www.linkedin.com/in/smrayeed/">LinkedIn</a><a href="https://orcid.org/0000-0001-7173-3429">ORCID</a><a href="../cv.pdf">CV</a></nav>
+</div></footer>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>
