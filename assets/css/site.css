@@ -382,3 +382,11 @@ table.res .yes { color: var(--moss); font-size: 1rem; } table.res .part { color:
 .ffacts li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid #263056; }
 .ffacts b { font-size: 1.35rem; color: #fff; }
 .ffacts span { color: #B8C1DD; font-size: .95rem; }
+
+.inlinefig { background: #fff; border-radius: 4px; padding: 8px; margin-top: 4px; }
+.tkey { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 4px 0 2px; }
+.tkey div { background: #F3F4F8; border-radius: 6px; padding: 10px 8px; text-align: center; }
+.tkey b { display: block; font-size: 1.35rem; color: var(--moss); }
+.tkey span { font-size: .85rem; color: var(--muted); }
+.tfind { margin: 4px 0 0; padding-left: 1.1em; color: var(--ink-2); font-size: .95rem; }
+.tfind li { margin: 6px 0; }
