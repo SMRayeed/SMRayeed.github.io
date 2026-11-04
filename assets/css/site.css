@@ -364,3 +364,21 @@ table.res .yes { color: var(--moss); font-size: 1rem; } table.res .part { color:
 @media (max-width: 760px) { .gal { grid-template-columns: 1fr; } }
 
 .xfigs.one { grid-template-columns: 1fr; }
+
+.feat.split { background: var(--ink); gap: 0; }
+.feat.split:hover { outline: none; }
+.split-h { padding: 16px 22px 4px; font-weight: 700; font-size: .95rem; color: #98A3C4; }
+.srow { display: flex; flex-direction: column; text-decoration: none; color: inherit; border-top: 1px solid #263056; }
+.split-h + .srow { border-top: 0; }
+.srow .figwrap { background: #fff; padding: 10px; margin: 10px 12px 0; border-radius: 4px; }
+.srow .body { padding: 14px 22px 18px; display: flex; flex-direction: column; gap: 8px; }
+.srow h3 { font-size: 1.25rem; font-weight: 700; color: #fff; }
+.srow p { color: #B8C1DD; margin: 0; font-size: .97rem; }
+.srow .go { font-weight: 650; font-size: .92rem; color: var(--gold); }
+.srow:hover .go { text-decoration: underline; }
+.srow:hover .figwrap { outline: 2px solid var(--gold); }
+
+.ffacts { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 0; }
+.ffacts li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid #263056; }
+.ffacts b { font-size: 1.35rem; color: #fff; }
+.ffacts span { color: #B8C1DD; font-size: .95rem; }
