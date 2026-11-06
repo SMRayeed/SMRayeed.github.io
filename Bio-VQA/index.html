@@ -23,14 +23,32 @@
 </div></header>
 <main id="main">
 
-<div class="ph"><div class="wrap">
+<div class="ph"><div class="wrap phgrid"><div class="phmain">
   <div class="crumbs" style="font:600 .92rem var(--display);color:#98A3C4;margin-bottom:18px"><a href="../" style="color:#D3DAEE">Home</a> / <a href="../research/visual-question-answering/" style="color:#D3DAEE">Visual question answering for biology</a></div>
   <div class="venue"><span class="tag conf">WACV 2027</span><span class="tag first">First author</span></div>
   <h1>How Finely Can Vision-Language Models See Biology? Bio-VQA: A Benchmark for Taxonomic, Morphological, Spatial and Individual Reasoning</h1>
   <p class="authors"><b>S M Rayeed</b>, Qian Ma, Charles V. Stewart, Yao Ma</p>
   <p class="vfull">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2027)</p>
   <div class="links"><a class="btn solid" href="https://arxiv.org/abs/2611.05559">Paper</a><a class="btn" href="https://github.com/Imageomics/Bio-VQA">Code</a><a class="btn" href="https://huggingface.co/datasets/imageomics/Bio-VQA">Dataset</a><a class="btn" href="#cite">Cite</a></div>
-</div></div>
+</div>
+<aside class="vd" data-src="demo/items.json" aria-label="Try Bio-VQA" hidden>
+  <div class="vd-top">
+    <h2 class="vd-title">Try a Bio-VQA question</h2>
+    <label class="vd-filter"><span class="sr">Task</span><select aria-label="Task"><option value="all">All tasks</option></select></label>
+  </div>
+  <div class="vd-img"><img alt="" decoding="async"></div>
+  <p class="vd-task"></p>
+  <p class="vd-q"></p>
+  <form class="vd-form" autocomplete="off">
+    <div class="vd-choices"></div>
+    <div class="vd-actions"><button class="btn solid vd-check" type="submit">Check answer</button><button class="btn vd-next" type="button">New question</button></div>
+  </form>
+  <div class="vd-res" hidden>
+    <p class="vd-verdict" aria-live="polite"></p>
+    <div class="vd-score"><div class="vd-dots" aria-hidden="true"></div><span class="vd-n"></span></div>
+    <ol class="vd-models"></ol>
+  </div>
+</aside></div></div>
 <div class="wrap teaser"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biovqa_teaser.webp" alt="Bio-VQA&#x27;s four components: hierarchical taxonomic reasoning, fine-grained attribute grounding, quantitative spatial reasoning and individual re-identification." loading="lazy"><figcaption>Bio-VQA's four components: hierarchical taxonomic reasoning, fine-grained attribute grounding, quantitative spatial reasoning and individual re-identification.</figcaption></figure></div>
 
 <section><div class="wrap twocol">
