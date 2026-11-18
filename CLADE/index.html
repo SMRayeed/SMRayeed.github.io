@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLADE | S M Rayeed</title>
+<meta name="description" content="When a retrieved page names only the answer&#x27;s family, language models answer instead of abstaining. CLADE measures this failure on PrimeKG and GloBI and shows how an ontology can recover the answer.">
+<meta property="og:title" content="CLADE | S M Rayeed">
+<meta property="og:description" content="When a retrieved page names only the answer&#x27;s family, language models answer instead of abstaining. CLADE measures this failure on PrimeKG and GloBI and shows how an ontology can recover the answer.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon-sr.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-sr-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&family=Noto+Sans+Bengali:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=1793765243">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav dark"><div class="wrap">
+<a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#121729"/><rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#3DD6F5" stroke-width="2.5" opacity=".9"/><text x="32" y="43" text-anchor="middle" font-family="'Source Serif 4', Georgia, serif" font-size="29" font-weight="700" fill="#F5F7FD">SR</text></svg>S M Rayeed</a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav aria-label="Main"><ul id="menu"><li><a href="../research/" aria-current=page>Research</a></li><li><a href="../publications/">Publications</a></li><li><a href="../datasets/">Datasets</a></li><li><a href="../cv.pdf">CV</a></li></ul></nav>
+</div></header>
+<main id="main">
+
+<div class="ph"><div class="wrap"><div class="phmain">
+  <div class="crumbs" style="font:600 .92rem var(--display);color:#98A3C4;margin-bottom:18px"><a href="../" style="color:#D3DAEE">Home</a> / <a href="../research/knowledge-based-vqa/" style="color:#D3DAEE">Knowledge-based VQA and retrieval</a></div>
+  <div class="venue"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div>
+  <h1>CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models</h1>
+  <p class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</p>
+  <p class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 NeuSymBridge Workshop</p>
+  <div class="links"><a class="btn solid" href="https://arxiv.org/abs/2611.14355">Paper</a><a class="btn" href="https://github.com/SMRayeed/CLADE">Code</a><a class="btn" href="#cite">Cite</a></div>
+</div></div></div>
+<div class="wrap teaser"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_concept.webp" alt="CLADE in one picture: a retrieved page names only the answer&#x27;s family; a checker sorts pages into named, family only and silent; an ontology expands the family into candidates; a chooser picks among them or hands the list back." loading="lazy"><figcaption>CLADE in one picture: a retrieved page names only the answer's family; a checker sorts pages into named, family only and silent; an ontology expands the family into candidates; a chooser picks among them or hands the list back.</figcaption></figure></div>
+
+<section><div class="wrap twocol">
+  <p class="tldr">When a retrieved page names only the answer's family, language models answer instead of abstaining, and those answers are wrong about half the time. An ontology can recover the exact answer once the family is known; finding the family is the bottleneck.</p>
+  <div class="prose">
+    <p>Retrieval-augmented systems often receive a page that is true and on topic but too coarse. Asked which disease lovastatin treats, the page says “hyperlipidemia” where the answer is “familial hyperlipidemia.” Asked what a moth feeds on, the page names the genus <i>Antennaria</i> but not the species. The page cannot settle the answer, but an ontology or a taxonomy turns the family into a short list of candidates. We call this <b>resolvable insufficiency</b>.</p>
+    <p>A careful agent should notice it and expand the family, or decline. Models instead pick a family member and answer. We call that failure <b>CLADE</b>, category-level answering from deficient evidence, and measure it with matched page types, counterfactual page edits and two domains.</p>
+  </div>
+</div></section>
+
+<section style="background:var(--paper-2)"><div class="wrap twocol">
+  <div><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Study at a glance</h2>
+  <table class="facts">
+    <tr><th>Domains</th><td>Drugs and diseases from PrimeKG with the MONDO disease ontology; species interactions (eats, preys on, parasite of, pollinates) from GloBI with the taxonomy</td></tr>
+    <tr><th>Questions</th><td>856 PrimeKG and 900 GloBI multiple-choice questions; every wrong option is a sibling of the answer, plus “Not enough information to tell”</td></tr>
+    <tr><th>Page types</th><td>Names the answer, names only its family, or says nothing, from Wikipedia and PubMed</td></tr>
+    <tr><th>Models</th><td>Qwen2.5 Instruct 0.5B, 7B and 14B, OLMo 2 7B and Granite 3.1 8B</td></tr>
+    <tr><th>Tests</th><td>Family-only against silent pages, counterfactual edits of named pages, confidence filtering, decline instructions, family size, and ontology-based recovery</td></tr>
+  </table></div>
+  <figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_two_domains.webp" alt="The same pattern in two domains: drugs and diseases from PrimeKG with the MONDO ontology, and species interactions from GloBI with the taxonomy." loading="lazy"><figcaption>The same pattern in two domains: drugs and diseases from PrimeKG with the MONDO ontology, and species interactions from GloBI with the taxonomy.</figcaption></figure>
+</div></section>
+
+<section><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">Findings</h2>
+  <ol class="find prose" style="max-width:80ch">
+    <li><b>A family name makes models answer.</b> Relative to a silent page, a family-only page cuts declines by 13.8 points on PrimeKG and 14.3 points on GloBI, and adds wrong answers (+7.7 and +11.6 points).</li>
+    <li><b>The family name is the cause.</b> Editing the same page so the answer becomes its family name cuts declines by 17.4 points on PrimeKG and 27.7 points on GloBI, compared with deleting the sentence.</li>
+    <li><b>The freed answers are near guesses.</b> Precision on family-only pages is 45 to 59% on PrimeKG and 22 to 28% on GloBI, where chance is 20%, against 84 to 95% on pages that name the answer.</li>
+    <li><b>Simple fixes do not solve it.</b> Confidence loses its signal on family-only pages, a decline instruction also throws away good answers, and a larger model shows the same effect.</li>
+    <li><b>The ontology closes the gap once the family is found.</b> Given the family, the candidate list holds the answer 98.5% of the time (median 14 candidates), but string matching finds the family on the page only 19.8% of the time. Letting the model choose the family raises end-to-end recovery from 10.0% to 26.8%.</li>
+  </ol>
+  <div style="margin-top:36px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_forest.webp" alt="Effect of a family-only page relative to a silent page on declines and wrong answers, per model, with 95% bootstrap intervals." loading="lazy"><figcaption>Effect of a family-only page relative to a silent page on declines and wrong answers, per model, with 95% bootstrap intervals.</figcaption></figure></div>
+  <div class="twocol" style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_edit.webp" alt="Counterfactual edit on the same page and question: replacing the answer with its family name cuts declines by 17.4 points on PrimeKG and 27.7 points on GloBI, relative to deleting the sentence." loading="lazy"><figcaption>Counterfactual edit on the same page and question: replacing the answer with its family name cuts declines by 17.4 points on PrimeKG and 27.7 points on GloBI, relative to deleting the sentence.</figcaption></figure><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_recovery.webp" alt="Recovering the exact answer: given the family, the ontology list contains it 98.5% of the time, but string matching finds the family on the page only 19.8% of the time." loading="lazy"><figcaption>Recovering the exact answer: given the family, the ontology list contains it 98.5% of the time, but string matching finds the family on the page only 19.8% of the time.</figcaption></figure></div>
+  <div style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/clade_fixes.webp" alt="Simple fixes fall short: confidence filtering loses its signal on family-only pages, an instruction to decline also discards good answers, and large families shrink the effect only past 20 members." loading="lazy"><figcaption>Simple fixes fall short: confidence filtering loses its signal on family-only pages, an instruction to decline also discards good answers, and large families shrink the effect only past 20 members.</figcaption></figure></div>
+</div></section>
+<section><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:10px">Related work</h2><ol class="pubs"><li class="pub" data-f="workshop first review"><div class="meta"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div><div><h3><a href="../LABEL/">LABEL: Literature Asymmetry between Efficacy and Limits in Drug Knowledge and Language Models</a></h3><div class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</div><div class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 Workshop on Health Intelligence (W3PHIAI)</div><div class="linkrow"><a class="lk pp" href="../LABEL/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.19166">Paper</a><a class="lk" href="https://github.com/SMRayeed/LABEL">Code</a></div></div></li><li class="pub" data-f="conf"><div class="meta"><span class="tag conf">ECCV 2026</span></div><div><h3><a href="https://link.springer.com/chapter/10.1007/978-3-032-37574-2_1">Identifying and Resolving Pitfalls of Knowledge-Based VQA Benchmarks: Auditing, Repairing, and Augmenting</a></h3><div class="authors">Qian Ma, <b>S M Rayeed</b>, Charles V. Stewart, Qiong Wu, Yao Ma</div><div class="vfull">European Conference on Computer Vision (ECCV 2026)</div><div class="linkrow"><a class="lk" href="https://link.springer.com/chapter/10.1007/978-3-032-37574-2_1">Paper</a><a class="lk" href="https://arxiv.org/abs/2607.00159">arXiv</a><a class="lk" href="https://github.com/VAN-QIAN/ECCV26-ARA">Code</a></div></div></li><li class="pub" data-f="conf first"><div class="meta"><span class="tag conf">WACV 2027</span><span class="tag first">First author</span></div><div><h3><a href="../Bio-VQA/">How Finely Can Vision-Language Models See Biology? Bio-VQA: A Benchmark for Taxonomic, Morphological, Spatial and Individual Reasoning</a></h3><div class="authors"><b>S M Rayeed</b>, Qian Ma, Charles V. Stewart, Yao Ma</div><div class="vfull">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2027)</div><div class="linkrow"><a class="lk pp" href="../Bio-VQA/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.05559">Paper</a><a class="lk" href="https://github.com/Imageomics/Bio-VQA">Code</a></div></div></li></ol></div></section><section id="cite"><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Cite</h2><div class="bib"><pre>@article{rayeed2026clade,
+  title   = {CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models},
+  author  = {Rayeed, S M and Stewart, Charles V. and Ma, Yao},
+  journal = {arXiv preprint arXiv:2611.14355},
+  year    = {2026}
+}</pre><button class="btn" type="button">Copy BibTeX</button></div></div></section>
+</main>
+<footer><div class="wrap">
+<div>S M Rayeed, PhD student in Computer Science at Rensselaer Polytechnic Institute<br><a href="mailto:rayees@rpi.edu">rayees@rpi.edu</a></div>
+<nav aria-label="Footer"><a href="https://scholar.google.com/citations?user=Xv0o0F4AAAAJ">Google Scholar</a><a href="https://github.com/SMRayeed">GitHub</a><a href="https://www.linkedin.com/in/smrayeed/">LinkedIn</a><a href="https://orcid.org/0000-0001-7173-3429">ORCID</a><a href="../cv.pdf">CV</a></nav>
+</div></footer>
+<script src="../assets/js/site.js?v=1793765243" defer></script>
+</body>
+</html>

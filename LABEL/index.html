@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LABEL | S M Rayeed</title>
+<meta name="description" content="Text names what a drug treats about twice as often as who must not take it, and language models inherit the gap. LABEL measures the asymmetry across Wikipedia, PubMed and FDA labels.">
+<meta property="og:title" content="LABEL | S M Rayeed">
+<meta property="og:description" content="Text names what a drug treats about twice as often as who must not take it, and language models inherit the gap. LABEL measures the asymmetry across Wikipedia, PubMed and FDA labels.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon-sr.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-sr-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&family=Noto+Sans+Bengali:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=1793765243">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav dark"><div class="wrap">
+<a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#121729"/><rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#3DD6F5" stroke-width="2.5" opacity=".9"/><text x="32" y="43" text-anchor="middle" font-family="'Source Serif 4', Georgia, serif" font-size="29" font-weight="700" fill="#F5F7FD">SR</text></svg>S M Rayeed</a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav aria-label="Main"><ul id="menu"><li><a href="../research/" aria-current=page>Research</a></li><li><a href="../publications/">Publications</a></li><li><a href="../datasets/">Datasets</a></li><li><a href="../cv.pdf">CV</a></li></ul></nav>
+</div></header>
+<main id="main">
+
+<div class="ph"><div class="wrap"><div class="phmain">
+  <div class="crumbs" style="font:600 .92rem var(--display);color:#98A3C4;margin-bottom:18px"><a href="../" style="color:#D3DAEE">Home</a> / <a href="../research/knowledge-based-vqa/" style="color:#D3DAEE">Knowledge-based VQA and retrieval</a></div>
+  <div class="venue"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div>
+  <h1>LABEL: Literature Asymmetry between Efficacy and Limits in Drug Knowledge and Language Models</h1>
+  <p class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</p>
+  <p class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 Workshop on Health Intelligence (W3PHIAI)</p>
+  <div class="links"><a class="btn solid" href="https://arxiv.org/abs/2611.19166">Paper</a><a class="btn" href="https://github.com/SMRayeed/LABEL">Code</a><a class="btn" href="#cite">Cite</a></div>
+</div></div></div>
+<div class="wrap teaser"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_pipeline.webp" alt="LABEL measurement design: PrimeKG drug-disease edges, an evidence search over Wikipedia, PubMed and the FDA label, seven language models tested closed book and with the drug&#x27;s page, and within-drug comparisons of indications and contraindications." loading="lazy"><figcaption>LABEL measurement design: PrimeKG drug-disease edges, an evidence search over Wikipedia, PubMed and the FDA label, seven language models tested closed book and with the drug's page, and within-drug comparisons of indications and contraindications.</figcaption></figure></div>
+
+<section><div class="wrap twocol">
+  <p class="tldr">Prose names what a drug treats about twice as often as who must not take it, and language models inherit the gap. The FDA label shows no gap, so routing safety questions to the label recovers the missing facts.</p>
+  <div class="prose">
+    <p>Every drug has two kinds of fact: its efficacy, what it treats, and its limits, who must not take it. Naproxen's Wikipedia page names gout and rheumatoid arthritis but not active peptic ulcer disease. A wrong limit can hurt a patient, yet people write about benefits far more than risks, and large language models learn from that writing.</p>
+    <p>We measure how often Wikipedia, PubMed and the FDA label name each drug fact, comparing indications and contraindications inside the same drug so a famous drug cannot skew the result. We then test seven language models on the same facts, closed book and with a retrieved passage, and test a routing rule that sends safety questions to the label.</p>
+  </div>
+</div></section>
+
+<section style="background:var(--paper-2)"><div class="wrap twocol">
+  <div><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Study at a glance</h2>
+  <table class="facts">
+    <tr><th>Facts</th><td>574 PrimeKG drugs with 3 indications and 3 contraindications each; disease families from MONDO</td></tr>
+    <tr><th>Sources</th><td>Wikipedia, PubMed abstracts and the whole FDA label (472 drugs)</td></tr>
+    <tr><th>Matching</th><td>Exact name, alternative name, family only or absent, with a random floor for chance matches and an LLM judge checked against four annotators (Fleiss' κ 0.89 and 0.92)</td></tr>
+    <tr><th>Models</th><td>Qwen2.5 from 0.5B to 14B, OLMo-2 7B and Granite-3.1 8B</td></tr>
+    <tr><th>Questions</th><td>Five-option closed-book questions, plus 856 harder questions with sibling distractors and “Not enough information”</td></tr>
+    <tr><th>Control</th><td>Hetionet treats against palliates, two positive relations</td></tr>
+  </table></div>
+  <figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_coverage.webp" alt="Text names a drug&#x27;s indications about twice as often as its contraindications in Wikipedia and PubMed." loading="lazy"><figcaption>Text names a drug's indications about twice as often as its contraindications in Wikipedia and PubMed.</figcaption></figure>
+</div></section>
+
+<section><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">Findings</h2>
+  <ol class="find prose" style="max-width:80ch">
+    <li><b>Prose names uses about twice as often as limits.</b> The within-drug odds ratio is 2.43 in Wikipedia, 2.77 in PubMed and 2.19 for both together.</li>
+    <li><b>The FDA label has no gap.</b> The whole label names uses and limits at the same rate (odds ratio 1.05, p = 0.62), so the gap comes from the prose, not the matcher. Most limits sit in the Boxed Warning and Warnings sections, not the Contraindications section.</li>
+    <li><b>Bigger models learn uses, not limits.</b> From Qwen2.5 0.5B to 14B, accuracy on indications rises by 18.3 points; accuracy on contraindications stays near the 20% chance level.</li>
+    <li><b>Models read safety facts well when they are given.</b> A passage that names the condition helps limits at least as much as uses (+14.2 against +11.1 points). Family-only and silent passages do not help.</li>
+    <li><b>The gap is specific to risk.</b> Two positive relations in Hetionet, treats and palliates, show no gap (odds ratio 1.05).</li>
+    <li><b>Routing to the label helps when the label names the fact.</b> On those safety questions, a label passage raises accuracy from 40.0% to 55.8%.</li>
+  </ol>
+  <div class="twocol" style="margin-top:36px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_scale.webp" alt="Scaling Qwen2.5 from 0.5B to 14B raises indication accuracy by 18.3 points; contraindication accuracy stays near the 20% chance level." loading="lazy"><figcaption>Scaling Qwen2.5 from 0.5B to 14B raises indication accuracy by 18.3 points; contraindication accuracy stays near the 20% chance level.</figcaption></figure><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_retrieval.webp" alt="A passage helps only when it names the condition; family-only and silent passages do not help." loading="lazy"><figcaption>A passage helps only when it names the condition; family-only and silent passages do not help.</figcaption></figure></div>
+  <div class="twocol" style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_fda.webp" alt="The whole FDA label shows no gap (odds ratio 1.05), although its Contraindications section alone names few of these limits." loading="lazy"><figcaption>The whole FDA label shows no gap (odds ratio 1.05), although its Contraindications section alone names few of these limits.</figcaption></figure><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_failure.webp" alt="With sibling distractors and a decline option, models fail on contraindications in two styles: some guess, others abstain." loading="lazy"><figcaption>With sibling distractors and a decline option, models fail on contraindications in two styles: some guess, others abstain.</figcaption></figure></div>
+  <div style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/label_router.webp" alt="A relation-aware agent: a planner routes safety questions to regulatory records, retrievers query the FDA label and DrugCentral, and a verifier answers with a source, expands and retries, or declines." loading="lazy"><figcaption>A relation-aware agent: a planner routes safety questions to regulatory records, retrievers query the FDA label and DrugCentral, and a verifier answers with a source, expands and retries, or declines.</figcaption></figure></div>
+</div></section>
+<section><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:10px">Related work</h2><ol class="pubs"><li class="pub" data-f="workshop first review"><div class="meta"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div><div><h3><a href="../CLADE/">CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models</a></h3><div class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</div><div class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 NeuSymBridge Workshop</div><div class="linkrow"><a class="lk pp" href="../CLADE/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.14355">Paper</a><a class="lk" href="https://github.com/SMRayeed/CLADE">Code</a></div></div></li><li class="pub" data-f="conf"><div class="meta"><span class="tag conf">ECCV 2026</span></div><div><h3><a href="https://link.springer.com/chapter/10.1007/978-3-032-37574-2_1">Identifying and Resolving Pitfalls of Knowledge-Based VQA Benchmarks: Auditing, Repairing, and Augmenting</a></h3><div class="authors">Qian Ma, <b>S M Rayeed</b>, Charles V. Stewart, Qiong Wu, Yao Ma</div><div class="vfull">European Conference on Computer Vision (ECCV 2026)</div><div class="linkrow"><a class="lk" href="https://link.springer.com/chapter/10.1007/978-3-032-37574-2_1">Paper</a><a class="lk" href="https://arxiv.org/abs/2607.00159">arXiv</a><a class="lk" href="https://github.com/VAN-QIAN/ECCV26-ARA">Code</a></div></div></li><li class="pub" data-f="conf first"><div class="meta"><span class="tag conf">WACV 2027</span><span class="tag first">First author</span></div><div><h3><a href="../Bio-VQA/">How Finely Can Vision-Language Models See Biology? Bio-VQA: A Benchmark for Taxonomic, Morphological, Spatial and Individual Reasoning</a></h3><div class="authors"><b>S M Rayeed</b>, Qian Ma, Charles V. Stewart, Yao Ma</div><div class="vfull">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2027)</div><div class="linkrow"><a class="lk pp" href="../Bio-VQA/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.05559">Paper</a><a class="lk" href="https://github.com/Imageomics/Bio-VQA">Code</a></div></div></li></ol></div></section><section id="cite"><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Cite</h2><div class="bib"><pre>@article{rayeed2026label,
+  title   = {LABEL: Literature Asymmetry between Efficacy and Limits in Drug Knowledge and Language Models},
+  author  = {Rayeed, S M and Stewart, Charles V. and Ma, Yao},
+  journal = {arXiv preprint arXiv:2611.19166},
+  year    = {2026}
+}</pre><button class="btn" type="button">Copy BibTeX</button></div></div></section>
+</main>
+<footer><div class="wrap">
+<div>S M Rayeed, PhD student in Computer Science at Rensselaer Polytechnic Institute<br><a href="mailto:rayees@rpi.edu">rayees@rpi.edu</a></div>
+<nav aria-label="Footer"><a href="https://scholar.google.com/citations?user=Xv0o0F4AAAAJ">Google Scholar</a><a href="https://github.com/SMRayeed">GitHub</a><a href="https://www.linkedin.com/in/smrayeed/">LinkedIn</a><a href="https://orcid.org/0000-0001-7173-3429">ORCID</a><a href="../cv.pdf">CV</a></nav>
+</div></footer>
+<script src="../assets/js/site.js?v=1793765243" defer></script>
+</body>
+</html>
