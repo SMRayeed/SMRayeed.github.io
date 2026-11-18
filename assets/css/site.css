@@ -448,3 +448,23 @@ table.res .yes { color: var(--moss); font-size: 1rem; } table.res .part { color:
 @media (max-width: 520px) { .vd-models { grid-template-columns: 1fr; } .vd-img { height: 220px; } .vd-img img { max-height: 220px; } }
 @media (prefers-reduced-motion: reduce) { .vd-dots i, .vd-img img { transition: none; } }
 .vd-form.done .vd-next { background: var(--gold); border-color: var(--gold); color: var(--drawer); }
+
+/* BioHop join flow */
+.hopflow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: hop; }
+.hopflow li { position: relative; background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 16px 16px 18px; counter-increment: hop; }
+.hopflow li::before { content: counter(hop); display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: #fff; font: 700 .8rem var(--display); margin-bottom: 10px; }
+.hopflow li:not(:last-child)::after { content: ""; position: absolute; right: -11px; top: 50%; width: 8px; height: 8px; border-top: 2px solid var(--muted); border-right: 2px solid var(--muted); transform: translateY(-50%) rotate(45deg); }
+.hopflow b { display: block; font: 700 1.02rem var(--display); margin-bottom: 4px; }
+.hopflow span { font-size: .92rem; color: var(--muted); line-height: 1.45; }
+@media (max-width: 900px) { .hopflow { grid-template-columns: 1fr; } .hopflow li:not(:last-child)::after { right: auto; left: 28px; top: auto; bottom: -11px; transform: rotate(135deg); } }
+.facts.rtable td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.facts.rtable tr:nth-last-child(-n+2) th, .facts.rtable tr:nth-last-child(-n+2) td { color: var(--muted); }
+.rtab-wrap { overflow-x: auto; background: var(--plate); border-radius: 10px; padding: 6px 14px; }
+.rtab { width: 100%; border-collapse: collapse; font-size: .93rem; font-variant-numeric: tabular-nums; }
+.rtab th, .rtab td { padding: 7px 8px; border-bottom: 1px solid var(--paper-2); text-align: right; white-space: nowrap; }
+.rtab thead th { font: 700 .84rem var(--display); color: var(--ink-2); vertical-align: bottom; }
+.rtab th:first-child { text-align: left; font-weight: 600; color: var(--ink); }
+.rtab tr.ft th, .rtab tr.ft td { font-style: italic; }
+.rtab tr.base th, .rtab tr.base td { color: var(--muted); font-weight: 400; }
+.rtab tbody tr:last-child th, .rtab tbody tr:last-child td { border-bottom: 0; }
+.rnote { font-size: .9rem; color: var(--muted); margin: 10px 2px 0; }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioHop | S M Rayeed</title>
+<meta name="description" content="BioHop is a multi-hop knowledge-based VQA benchmark: identify the species in a photo, follow a GloBI interaction to a partner that is never shown, and answer from the partner&#x27;s traits.">
+<meta property="og:title" content="BioHop | S M Rayeed">
+<meta property="og:description" content="BioHop is a multi-hop knowledge-based VQA benchmark: identify the species in a photo, follow a GloBI interaction to a partner that is never shown, and answer from the partner&#x27;s traits.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon-sr.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-sr-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&family=Noto+Sans+Bengali:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=1793765243">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav dark"><div class="wrap">
+<a class="brand" href="../"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#121729"/><rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#3DD6F5" stroke-width="2.5" opacity=".9"/><text x="32" y="43" text-anchor="middle" font-family="'Source Serif 4', Georgia, serif" font-size="29" font-weight="700" fill="#F5F7FD">SR</text></svg>S M Rayeed</a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav aria-label="Main"><ul id="menu"><li><a href="../research/" aria-current=page>Research</a></li><li><a href="../publications/">Publications</a></li><li><a href="../datasets/">Datasets</a></li><li><a href="../cv.pdf">CV</a></li></ul></nav>
+</div></header>
+<main id="main">
+
+<div class="ph"><div class="wrap"><div class="phmain">
+  <div class="crumbs" style="font:600 .92rem var(--display);color:#98A3C4;margin-bottom:18px"><a href="../" style="color:#D3DAEE">Home</a> / <a href="../research/knowledge-based-vqa/" style="color:#D3DAEE">Knowledge-based VQA and retrieval</a></div>
+  <div class="venue"><span class="tag conf">KDD 2027</span><span class="tag review">In preparation</span><span class="tag first">First author</span></div>
+  <h1>BioHop: Multi-Hop Knowledge-Based Visual Question Answering over Species Interactions and Traits</h1>
+  <p class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</p>
+  <p class="vfull">In preparation for the KDD 2027 Datasets and Benchmarks Track</p>
+  <div class="links"></div>
+</div></div></div>
+<div class="wrap teaser"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig01.webp" alt="A BioHop question shows only the photo of species A. The model must identify A, follow a GloBI interaction to partner B, which is never shown or named, and read B&#x27;s trait from TraitBank. Photos from TreeOfLife-200M." loading="lazy"><figcaption>A BioHop question shows only the photo of species A. The model must identify A, follow a GloBI interaction to partner B, which is never shown or named, and read B's trait from TraitBank. Photos from TreeOfLife-200M.</figcaption></figure></div>
+
+<section><div class="wrap twocol">
+  <p class="tldr">BioHop shows a photo of one species and asks about a trait of its ecological partner, which is never shown and never named. Open VLMs answer barely above a wording baseline; supplying the partner closes 81 to 98% of the gap to the one-hop ceiling, so partner resolution is the bottleneck.</p>
+  <div class="prose">
+    <p>Knowledge-based VQA benchmarks such as E-VQA and InfoSeek ask about the entity in the image. In biology, much of what matters about an organism sits one hop away: what it eats, what hunts it, which plants it visits, and the traits of those partners.</p>
+    <p>Answering a BioHop question takes three steps: identify species A from the photo, follow a GloBI interaction to partner B, and read B's trait from TraitBank. Controlled forms of every question isolate each step, and each hop is checked against Wikipedia to see whether a text retriever could find the bridge at all.</p>
+  </div>
+</div></section>
+
+<section style="background:var(--paper-2)"><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">How the knowledge graph is built</h2>
+  <p class="prose" style="max-width:80ch;margin-bottom:22px">GBIF backbone keys are the hub. Wikidata maps each GBIF key to the EOL, NCBI and Open Tree of Life ids that GloBI and TraitBank use. The join yields one node per species with images and the paths that questions come from: species A interacts with species B, and B has a trait value.</p>
+  <ol class="hopflow"><li><b>TreeOfLife-200M</b><span>538,972 species, all with images</span></li><li><b>GBIF backbone</b><span>Names matched to accepted taxon keys, synonyms followed</span></li><li><b>Wikidata</b><span>GBIF key to EOL, NCBI and Open Tree ids, plus the English Wikipedia article</span></li><li><b>GloBI</b><span>1,696,463 interaction edges among 113,545 species</span></li><li><b>TraitBank</b><span>1,107,365 trait values for 318,503 species, 58 predicates</span></li></ol>
+</div></section>
+
+<section><div class="wrap twocol">
+  <div><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Benchmark at a glance</h2>
+  <table class="facts">
+    <tr><th>Graph</th><td>538,972 species; 1,696,463 GloBI edges, 900,280 (53%) gold, matched by id or by two or more records; 1,107,365 TraitBank values</td></tr>
+    <tr><th>Interactions</th><td>Eats 655,847; preys on 464,496; has host 232,714; pollinates 166,661; visits flowers of 138,807; parasite of 37,938</td></tr>
+    <tr><th>Two-hop</th><td>19,547 questions over 9,314 pictured species and 37 traits; 11,666 train, 2,051 validation, 5,830 test; 13,043 gold and 6,504 silver</td></tr>
+    <tr><th>One-hop controls</th><td>70,872 questions about A itself, over 36,402 species and 45 traits</td></tr>
+    <tr><th>Three-hop</th><td>5,141 chains A to B to C over 755 species and 44 traits; 395 with photos evaluated</td></tr>
+    <tr><th>Models</th><td>Qwen3-VL-32B and 8B, Qwen2.5-VL-7B, InternVL3.5-8B, Gemma-3-12B, LLaVA-OneVision-7B, greedy decoding; a LoRA-tuned Qwen2.5-VL-7B</td></tr>
+  </table></div>
+  <div class="prose">
+    <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:16px">Construction rules</h2>
+    <p>A question is kept only when A has at most 10 recorded partners under the interaction, all of them share the trait value (the same range for numeric traits), and each partner's TraitBank records agree at least 80% of the time, so every answer is unanimous.</p>
+    <p>Answers are rebalanced within wording groups, which cut a question-only baseline from 50.7% to 35.3%. Splits are by pictured species A, so no test species appears in training.</p>
+    <p>Controlled forms give the model the photo of A (the task), only A's name, only A's kind (“an insect”), the photo plus the true partner B, or the one-hop question about B.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">Partner resolution is the bottleneck</h2>
+  <p class="prose" style="max-width:80ch">Closed-book accuracy is 36.7 to 40.3%, against a wording baseline of 35.3% and chance at 32.1%. Giving the model the true partner lifts every model, to 44.7 to 59.0%, closing 81 to 98% of the gap to asking about B directly.</p>
+  <div style="margin-top:24px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig02.webp" alt="Accuracy by form on the diagnostic set (3,993 questions): photo of A (the task), A&#x27;s name, A&#x27;s kind only, the true partner given, and the one-hop question about B." loading="lazy"><figcaption>Accuracy by form on the diagnostic set (3,993 questions): photo of A (the task), A's name, A's kind only, the true partner given, and the one-hop question about B.</figcaption></figure></div>
+  <div style="margin-top:28px;max-width:900px"><div class="rtab-wrap"><table class="rtab"><thead><tr><th>Model</th><th>Photo of A</th><th>Name of A</th><th>Kind only</th><th>Partner given</th><th>B by photo</th><th>B by name</th></tr></thead><tbody><tr><th>Qwen3-VL-32B</th><td>40.3</td><td>37.6</td><td>34.6</td><td>59.0</td><td>53.8</td><td>59.6</td></tr><tr><th>Qwen3-VL-8B</th><td>37.4</td><td>36.2</td><td>35.0</td><td>52.0</td><td>51.3</td><td>53.7</td></tr><tr><th>Qwen2.5-VL-7B</th><td>37.3</td><td>37.7</td><td>36.0</td><td>48.8</td><td>48.2</td><td>50.9</td></tr><tr class="ft"><th>Qwen2.5-VL-7B + LoRA</th><td>45.5</td><td>41.3</td><td>38.4</td><td>58.5</td><td>60.1</td><td>59.8</td></tr><tr><th>InternVL3.5-8B</th><td>36.7</td><td>36.5</td><td>35.2</td><td>47.5</td><td>44.7</td><td>47.7</td></tr><tr><th>Gemma-3-12B</th><td>37.0</td><td>35.9</td><td>34.3</td><td>51.4</td><td>49.7</td><td>54.8</td></tr><tr><th>LLaVA-OV-7B</th><td>37.7</td><td>37.1</td><td>36.8</td><td>44.7</td><td>46.0</td><td>46.1</td></tr><tr class="base"><th>Wording baseline</th><td>35.3</td><td>35.3</td><td>35.3</td><td>35.3</td><td>35.3</td><td>35.3</td></tr><tr class="base"><th>Chance</th><td>32.1</td><td>32.1</td><td>32.1</td><td>32.1</td><td>32.1</td><td>32.1</td></tr></tbody></table></div><p class="rnote">Accuracy (%) by form on the diagnostic set of 3,993 test questions with one partner, both species extant and both with photos.</p></div>
+  <div style="margin-top:24px;max-width:900px"><div class="rtab-wrap"><table class="rtab"><thead><tr><th>Model</th><th>Photo of A</th><th>Kind only</th><th>One partner</th><th>Several partners</th></tr></thead><tbody><tr><th>Qwen3-VL-32B</th><td>40.6</td><td>34.7</td><td>40.2</td><td>43.4</td></tr><tr><th>Qwen3-VL-8B</th><td>38.6</td><td>36.4</td><td>38.2</td><td>41.3</td></tr><tr><th>Qwen2.5-VL-7B</th><td>38.4</td><td>35.8</td><td>38.3</td><td>39.0</td></tr><tr class="ft"><th>Qwen2.5-VL-7B + LoRA</th><td>46.8</td><td>38.3</td><td>45.8</td><td>53.7</td></tr><tr><th>InternVL3.5-8B</th><td>37.1</td><td>35.7</td><td>36.8</td><td>39.1</td></tr><tr><th>Gemma-3-12B</th><td>38.2</td><td>34.7</td><td>37.8</td><td>41.2</td></tr><tr><th>LLaVA-OV-7B</th><td>37.5</td><td>36.1</td><td>37.5</td><td>37.6</td></tr><tr class="base"><th>Wording baseline</th><td>36.5</td><td>36.5</td><td>36.5</td><td>36.5</td></tr><tr class="base"><th>Chance</th><td>31.7</td><td>31.7</td><td>31.7</td><td>31.7</td></tr></tbody></table></div><p class="rnote">Closed-book accuracy (%) on the full two-hop test split: 5,300 questions with a photo, 4,692 with one partner and 739 with several.</p></div>
+</div></section>
+
+<section style="background:var(--paper-2)"><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">Where the chain breaks</h2>
+  <ol class="find prose" style="max-width:80ch">
+    <li><b>VLMs cannot name the species.</b> They name species A correctly 2.0 to 13.6% of the time and its genus 6.3 to 29.9%. BioCLIP-2 retrieves A zero-shot at 55.4% top 1 and 70.9% top 5; general CLIP-style retrievers stay below 12%.</li>
+    <li><b>The graph route works where names do not.</b> Handing the model BioCLIP-2's name for A does not help, but following GloBI from BioCLIP-2's predictions reaches the true partner 56.2% of the time from the top 1 and 60.1% routed over the top 5, raising accuracy to 42.8 to 51.3%. With the partner's TraitBank value, models reach 74.9 to 76.6%.</li>
+    <li><b>Text does not carry the link.</b> A's Wikipedia article names B for 9.7% of questions, and for none of the preys-on edges. Three retrieved passages move accuracy by at most 1.2 points, while the GloBI route adds 5.1 to 11.0. When the article does name B, retrievers find it 91 to 93% of the time.</li>
+    <li><b>Relatives fill some gaps.</b> With B's own record removed, the majority of evidence from B's genus or family is right 52.4 to 53.4% of the time, and 63.7 to 64.1% when taken from the true B's relatives.</li>
+    <li><b>Three hops stay hard.</b> On 395 chains, accuracy from the photo is 34.4 to 37.7% for the base models. Giving both links lifts Qwen3-VL-32B to 52.4%.</li>
+    <li><b>Training helps, most on unseen partners.</b> LoRA (rank 16, one epoch, 16,000 questions) lifts Qwen2.5-VL-7B from 38.4 to 46.8% on the full test split. The gain is largest, +10.0 points, for partners never seen in training, so it is not memorization of partners.</li>
+  </ol>
+  <div style="margin-top:32px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig06.webp" alt="Identifying species A: zero-shot image retrievers over the benchmark&#x27;s species, and VLMs naming the species in an open answer." loading="lazy"><figcaption>Identifying species A: zero-shot image retrievers over the benchmark's species, and VLMs naming the species in an open answer.</figcaption></figure></div>
+  <div style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig03.webp" alt="Retrieval ladder: closed book, BioCLIP-2&#x27;s name for A, the GloBI partner of BioCLIP-2&#x27;s top-1 and top-5 predictions, the true partner, and the partner with its TraitBank value." loading="lazy"><figcaption>Retrieval ladder: closed book, BioCLIP-2's name for A, the GloBI partner of BioCLIP-2's top-1 and top-5 predictions, the true partner, and the partner with its TraitBank value.</figcaption></figure></div>
+  <div style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig04.webp" alt="Wikipedia rarely states the link: A&#x27;s article names B in 9.7% of questions and never for preys-on edges. When the article does name B, text retrievers find it 91 to 93% of the time." loading="lazy"><figcaption>Wikipedia rarely states the link: A's article names B in 9.7% of questions and never for preys-on edges. When the article does name B, text retrievers find it 91 to 93% of the time.</figcaption></figure></div>
+  <div class="twocol" style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig05.webp" alt="Change over closed book: three retrieved Wikipedia passages move accuracy by at most 1.2 points, while the GloBI graph route adds 5.1 to 11.0 points." loading="lazy"><figcaption>Change over closed book: three retrieved Wikipedia passages move accuracy by at most 1.2 points, while the GloBI graph route adds 5.1 to 11.0 points.</figcaption></figure><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig07.webp" alt="Gap filling with B&#x27;s own trait record removed: evidence from B&#x27;s genus or family, read by the model or by majority vote, against the majority from the true B&#x27;s relatives." loading="lazy"><figcaption>Gap filling with B's own trait record removed: evidence from B's genus or family, read by the model or by majority vote, against the majority from the true B's relatives.</figcaption></figure></div>
+  <div class="twocol" style="margin-top:28px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig08.webp" alt="Three-hop chains A to B to C (395 with photos): from the photo of A, with the first link, with both links, and asking about C directly." loading="lazy"><figcaption>Three-hop chains A to B to C (395 with photos): from the photo of A, with the first link, with both links, and asking about C directly.</figcaption></figure><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig09.webp" alt="LoRA fine-tuning gains on the full test split, split by whether training questions involved the same partner B. The largest gain, +10.0 points, is on partners never seen in training." loading="lazy"><figcaption>LoRA fine-tuning gains on the full test split, split by whether training questions involved the same partner B. The largest gain, +10.0 points, is on partners never seen in training.</figcaption></figure></div>
+  <div style="margin-top:28px;max-width:860px"><figure class="plate" style="margin:0;"><img class="figimg" src="../assets/fig/biohop_fig10.webp" alt="Pooled accuracy per trait over six models: from the photo of A, with the partner given, and asking B directly, against chance." loading="lazy"><figcaption>Pooled accuracy per trait over six models: from the photo of A, with the partner given, and asking B directly, against chance.</figcaption></figure></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 style="font-size:1.9rem;font-weight:800;margin-bottom:8px">Robustness checks</h2>
+  <ul class="prose" style="max-width:80ch">
+    <li>Restricted to questions where the model named A correctly, accuracy from the photo rises (31.6 to 54.4%) but stays well below the partner-given form (35.4 to 64.7%).</li>
+    <li>On 52 questions where A's scientific name contains B's genus, accuracy from A's name rises by 6 to 23 points, so these leaks are tracked separately.</li>
+    <li>Gold and silver questions give similar accuracy once gold is reweighted to silver's trait mix.</li>
+  </ul>
+</div></section>
+<section><div class="wrap"><h2 style="font-size:1.9rem;font-weight:800;margin-bottom:10px">Related work</h2><ol class="pubs"><li class="pub" data-f="workshop first review"><div class="meta"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div><div><h3><a href="../CLADE/">CLADE: Category-Level Answering from Deficient Evidence in Retrieval-Augmented Language Models</a></h3><div class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</div><div class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 NeuSymBridge Workshop</div><div class="linkrow"><a class="lk pp" href="../CLADE/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.14355">Paper</a><a class="lk" href="https://github.com/SMRayeed/CLADE">Code</a></div></div></li><li class="pub" data-f="workshop first review"><div class="meta"><span class="tag workshop">AAAI 2027 Workshop</span><span class="tag review">Under review</span><span class="tag first">First author</span></div><div><h3><a href="../LABEL/">LABEL: Literature Asymmetry between Efficacy and Limits in Drug Knowledge and Language Models</a></h3><div class="authors"><b>S M Rayeed</b>, Charles V. Stewart, Yao Ma</div><div class="vfull">arXiv preprint, 2026. Under review at the AAAI 2027 Workshop on Health Intelligence (W3PHIAI)</div><div class="linkrow"><a class="lk pp" href="../LABEL/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.19166">Paper</a><a class="lk" href="https://github.com/SMRayeed/LABEL">Code</a></div></div></li><li class="pub" data-f="conf first"><div class="meta"><span class="tag conf">WACV 2027</span><span class="tag first">First author</span></div><div><h3><a href="../Bio-VQA/">How Finely Can Vision-Language Models See Biology? Bio-VQA: A Benchmark for Taxonomic, Morphological, Spatial and Individual Reasoning</a></h3><div class="authors"><b>S M Rayeed</b>, Qian Ma, Charles V. Stewart, Yao Ma</div><div class="vfull">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2027)</div><div class="linkrow"><a class="lk pp" href="../Bio-VQA/">Project page</a><a class="lk" href="https://arxiv.org/abs/2611.05559">Paper</a><a class="lk" href="https://github.com/Imageomics/Bio-VQA">Code</a></div></div></li></ol></div></section>
+</main>
+<footer><div class="wrap">
+<div>S M Rayeed, PhD student in Computer Science at Rensselaer Polytechnic Institute<br><a href="mailto:rayees@rpi.edu">rayees@rpi.edu</a></div>
+<nav aria-label="Footer"><a href="https://scholar.google.com/citations?user=Xv0o0F4AAAAJ">Google Scholar</a><a href="https://github.com/SMRayeed">GitHub</a><a href="https://www.linkedin.com/in/smrayeed/">LinkedIn</a><a href="https://orcid.org/0000-0001-7173-3429">ORCID</a><a href="../cv.pdf">CV</a></nav>
+</div></footer>
+<script src="../assets/js/site.js?v=1793765243" defer></script>
+</body>
+</html>
